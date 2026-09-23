@@ -1,0 +1,3 @@
+# Forzar finales de línea LF en todo el repo (evita que core.autocrlf los pase a CRLF
+# en Windows y choque con Prettier endOfLine: "lf").
+* text=auto eol=lf
