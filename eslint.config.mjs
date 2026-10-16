@@ -45,6 +45,17 @@ const eslintConfig = [
     ...nextTypeScript,
     prettier,
     {
+        // eslint-config-next deja settings.react.version en 'detect', y
+        // eslint-plugin-react detecta la versión llamando a context.getFilename(),
+        // método que ESLint 10 quitó del contexto de las reglas. Fijar la versión
+        // leída de react/package.json evita que entre en esa ruta rota.
+        settings: {
+            react: {
+                version: require('react/package.json').version,
+            },
+        },
+    },
+    {
         rules: {
             '@typescript-eslint/no-unused-vars': [
                 'error',
