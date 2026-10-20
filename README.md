@@ -63,14 +63,18 @@ yarn dev          # http://localhost:3000
 
 | Comando           | Qué hace                                           |
 | ----------------- | -------------------------------------------------- |
-| `yarn validate`   | type-check + lint + format:check + tests unitarios |
+| `yarn validate`   | type-check + lint + format:check + tests + build   |
 | `yarn test`       | Vitest (unitarios y de componentes)                |
 | `yarn test:watch` | Vitest en modo watch                               |
 | `yarn e2e`        | Playwright (levanta `yarn dev` solo si hace falta) |
 | `yarn build`      | Build de producción                                |
 
-`yarn validate` **no incluye `yarn build`**: un `tsc --noEmit` limpio no garantiza que el build de
-Next pase. Corré los dos antes de dar algo por terminado.
+`yarn validate` termina con `yarn build`: un `tsc --noEmit` limpio no garantiza que el build de
+Next pase. El hook `pre-push` (husky) corre `yarn validate` antes de cada push, así que nada
+sube en rojo.
+
+La URL pública (canonical, Open Graph, `robots.txt` y `sitemap.xml`) sale de
+`NEXT_PUBLIC_SITE_URL`; sin ella se usa la de Vercel (ver `.env.example`).
 
 ## Estructura
 

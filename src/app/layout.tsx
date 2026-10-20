@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site';
 import './globals.css';
 
 /** Inter para la interfaz; JetBrains Mono para todo lo que sea token, JSON o clave. */
@@ -12,9 +13,20 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    title: 'JWT Viewer · Decodificar, verificar y generar JSON Web Tokens',
-    description:
-        'Decodificá, verificá y generá JSON Web Tokens (RFC 7519) sin que el token salga de tu navegador.',
+    metadataBase: new URL(SITE_URL),
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    alternates: { canonical: '/' },
+    openGraph: {
+        type: 'website',
+        locale: 'es',
+        url: '/',
+        siteName: SITE_NAME,
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
+    },
+    twitter: { card: 'summary_large_image', title: SITE_TITLE, description: SITE_DESCRIPTION },
+    robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
