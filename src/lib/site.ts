@@ -7,3 +7,9 @@ export const SITE_NAME = 'JWT Viewer';
 export const SITE_TITLE = 'JWT Viewer · Decodificar, verificar y generar JSON Web Tokens';
 export const SITE_DESCRIPTION =
     'Decodificá, verificá y generá JSON Web Tokens (RFC 7519) sin que el token salga de tu navegador.';
+
+/** Credits the developer until a company name is chosen; this is the one place to change it. */
+export const DEVELOPER = {
+    name: 'Randy Díaz Ruiz',
+    url: 'https://portfolio-nu-sand-25.vercel.app',
+} as const;

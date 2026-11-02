@@ -10,6 +10,7 @@ import { KeyInput } from '@/components/jwt-keys/KeyInput';
 import { Button } from '@/components/ui/Button';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { Panel } from '@/components/ui/Panel';
+import { DEVELOPER } from '@/lib/site';
 import { useJwtStore } from '@/store/jwt-store';
 
 function Wordmark() {
@@ -170,6 +171,18 @@ export default function Home() {
                     </div>
                 </div>
             </main>
+
+            <footer className="border-t border-line px-4 py-2 text-xs text-ink-muted">
+                Desarrollado por{' '}
+                <a
+                    href={DEVELOPER.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink-mid underline underline-offset-2 hover:text-ink"
+                >
+                    {DEVELOPER.name}
+                </a>
+            </footer>
         </div>
     );
 }
